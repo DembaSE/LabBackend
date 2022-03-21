@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+    <title>My Website</title>
+    <style>
+        *,
+        html {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: rgb(26, 132, 42);
+        }
+
+        .center {
+            width: 100%;
+            height: 50%;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 144px;
+        }
+        h2 {
+            font-size: 100px;
+        }
+        h2 {
+            font-size: 50px;
+        }
+        p {
+            font-size: 38px;
+        }
+        button{
+            width: 10%;
+            height: 10%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h1>Hello World</h1>
+        <p>This file is hosted on the server running on port 8000</p>
+        <br/>
+        <p>-----------------------------------</p>
+        <h2>Backend data :</h2>
+        <p><%- labelName%></p>
+        <p>The developper of this website is : <%- developper%></p>
+        <br/>
+        <p>-----------------------------------</p>
+        <p id="counter">Click the button to request data.</p>
+        <br/>
+        <h3>This porject was done on the : <div id='dateText'></div></h3>
+        <h3>The time was :<div id='timeText'></div></h3>
+        <br/>
+        <button id="myButton">Click me</button>
+        <br/>
+        <p>-----------------------------------</p>
+        <br/>
+        <button><a href="newPage.ejs">Next page</a></button>
+    </div>
+    <script>
+        const button_Data=0;
+        const button = document.getElementById('myButton');
+        button.addEventListener('click', function(e) {
+        document.getElementById('dateText').innerHTML += '<%- date%>';
+        document.getElementById('timeText').innerHTML += '<%- time%>';
+        document.getElementById("myButton").disabled = true;
+        });
+    </script>
+</body>
+
+</html>
